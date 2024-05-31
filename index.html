@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="sleep">Run sleep sync</button>
+  <button id="sleep-async">Run sleep async</button>
+</body>
+<script>
+  document.getElementById("sleep").onclick = () => {
+    console.log('sleep');
+    window.__TAURI_INTERNALS__.invoke("sleep");
+    window.location.reload();
+  };
+  document.getElementById("sleep-async").onclick = async () => {
+    console.log('sleep async');
+    window.__TAURI_INTERNALS__.invoke("sleep_async");
+    window.location.reload();
+  }
+</script>
+
+</html>
